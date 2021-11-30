@@ -1,4 +1,5 @@
 package com.spypro.citad.techie;
+// All imported Java Packages
 
 import android.app.Activity;
 import android.app.*;
@@ -35,11 +36,11 @@ import android.app.FragmentManager;
 import android.app.DialogFragment;
 import android.app.admin.DevicePolicyManager;
 
-// By Suhail
+// By MainActivity Starting point
 public class MainActivity extends Activity {
 	
 	private String message = "";
-	
+	// Inialization of the widgets
 	private LinearLayout linear1;
 	private LinearLayout linear2;
 	private TextView textview1;
@@ -49,6 +50,7 @@ public class MainActivity extends Activity {
 	private Button button2;
 	private ImageView imageview1;
 	
+	// Oncreate Method
 	@Override
 	protected void onCreate(Bundle _savedInstanceState) {
 		super.onCreate(_savedInstanceState);
@@ -56,7 +58,7 @@ public class MainActivity extends Activity {
 		initialize(_savedInstanceState);
 		initializeLogic();
 	}
-	
+	// Connecting all Views from XML
 	private void initialize(Bundle _savedInstanceState) {
 		linear1 = (LinearLayout) findViewById(R.id.linear1);
 		linear2 = (LinearLayout) findViewById(R.id.linear2);
@@ -76,7 +78,7 @@ public class MainActivity extends Activity {
 			}
 		});
 		
-		// Lock the device if the permission accepted
+		// Check if the permission accepted
 		button2.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View _view) {
@@ -89,7 +91,7 @@ public class MainActivity extends Activity {
 			}
 		});
 	}
-	
+	// Lock the device if the permission accepted
 	private void initializeLogic() {
 		devicePolicyManager = (DevicePolicyManager) getSystemService(DEVICE_POLICY_SERVICE);
 		activityManager = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
@@ -106,7 +108,7 @@ public class MainActivity extends Activity {
 		}
 	}
 	
-	// Arabware Method
+	// Tile view import
 	public void _ArabWare () {
 	}
 	public static final int RESULT_ENABLE = 11;
@@ -127,7 +129,7 @@ public class MainActivity extends Activity {
 		}
 	}
 	
-	
+	// Device policy management don't edit
 	public boolean _isDeviceAdmin () {
 		return devicePolicyManager.isAdminActive(compName);
 	}
@@ -137,7 +139,7 @@ public class MainActivity extends Activity {
 	public void showMessage(String _s) {
 		Toast.makeText(getApplicationContext(), _s, Toast.LENGTH_SHORT).show();
 	}
-	
+	// Location Detector
 	@Deprecated
 	public int getLocationX(View _v) {
 		int _location[] = new int[2];
@@ -157,7 +159,7 @@ public class MainActivity extends Activity {
 		Random random = new Random();
 		return random.nextInt(_max - _min + 1) + _min;
 	}
-	
+	// Detect motion 
 	@Deprecated
 	public ArrayList<Double> getCheckedItemPositionsToArray(ListView _list) {
 		ArrayList<Double> _result = new ArrayList<Double>();
